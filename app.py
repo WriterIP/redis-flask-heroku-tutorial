@@ -4,7 +4,7 @@ import redis
 
 app = Flask(__name__)
 
-
+r = None
 @app.route('/')
 def hello():
     return 'Hello, fellow traveler!. Follow white <a href="/rabbit">rabbit</a>!'
@@ -24,6 +24,8 @@ def hello_name(name):
 
 if __name__ == '__main__':
     app.run()
+
+def connect_redis():
     global r
     r = redis.from_url(os.environ.get('REDIS_URL'))
 
@@ -33,8 +35,10 @@ def get_random_quote():
 
 
 def put_in_mind(name, quote):
+    if r is None: connect_redis()
     r.set(name, quote)
 
 
 def get_from_mind(name):
+    if r is None: connect_redis()
     return r.get(name)

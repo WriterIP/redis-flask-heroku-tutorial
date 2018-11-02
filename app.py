@@ -3,7 +3,6 @@ import os
 import redis
 
 app = Flask(__name__)
-r = None
 
 
 @app.route('/')

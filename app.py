@@ -8,7 +8,7 @@ r = None
 
 @app.route('/')
 def hello():
-    return 'Hello World!. Follow white rabbit! <>'
+    return 'Hello, fellow traveler!. Follow white <a href="/rabbit">rabbit</a>!'
 
 
 @app.route('/<name>')

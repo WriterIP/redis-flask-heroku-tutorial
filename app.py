@@ -25,7 +25,7 @@ def hello_name(name):
 
 if __name__ == '__main__':
     app.run()
-    # global r
+    global r
     r = redis.from_url(os.environ.get('REDIS_URL'))
 
 

@@ -17,7 +17,7 @@ def hello():
 def hello_name(name):
     quote = get_from_mind(name)
     if quote:
-        return 'Be smart, {}: <br/>{}'.format(name, quote)
+        return 'Be smart, {}: <br/>{}'.format(name, str(quote))
     else:
         put_in_mind(name, get_random_quote())
         return 'Hello, {}! We will remember you on your next visit!<br/>' \
